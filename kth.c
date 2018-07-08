@@ -33,24 +33,27 @@ void swap(int x,int y,int *seq){
 void sort(int *seq,int select,int left, int right){
 	int pivotindex=(left+right)/2;
 	int pivot=seq[pivotindex];
+	int index;
+
 	if(right<=left)
 		return;
-	if(select==1){			//choose descend
-		
-		printf("not yet\n");
-	}
-	else if (select==2){			//choose ascend
-		int index=left;
-		swap(pivotindex,right,seq);
-		for(i=left;i<right;i++){
-			if(seq[i]<=pivot){
+	index=left;
+	swap(pivotindex,right,seq);
+	for(i=left;i<right;i++){
+		if(select==1){			// choose descend
+			if(seq[i]>=pivot){
 				swap(index,i,seq);
 				index++;
 			}
 		}
-		swap(index,right,seq);
-		sort(seq,select,left,index-1);
-		sort(seq,select,index+1,right);
+		else{
+			if(seq[i]<=pivot){			//choose ascend
+				swap(index,i,seq);
+				index++;
+			}
+		}
 	}
-	else printf("wrong selected number\n");
+	swap(index,right,seq);
+	sort(seq,select,left,index-1);
+	sort(seq,select,index+1,right);
 }
