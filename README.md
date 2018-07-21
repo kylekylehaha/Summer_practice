@@ -17,10 +17,15 @@ Find the target whether in string.
 Class the number that have Equivalence realtion.
 
 Equivalence realtion:
+
 (1) x=x -> reflexive
+
 (2) x=y 且 y=x -> symmetric
+
 (3) x=y ,y=x 則x=z -> transitive
 
 **How to use**
+
 input how many number there are
+
 input pair (i,j)
